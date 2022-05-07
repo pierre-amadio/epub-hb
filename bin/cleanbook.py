@@ -36,6 +36,8 @@ with open(inputFile) as fp:
   for book in soup.find_all('div',type="book"):
     bookId=book["osisID"]
     print(bookId)
+    if not bookId in bookAbbr:
+        print("AIE")
     #for chapter in book.find_all("chapter"):
     #   createChapterHtml(chapter)
 
