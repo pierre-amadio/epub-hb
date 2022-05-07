@@ -14,8 +14,6 @@ else:
   shortName=inputFile
 
 print("Extracting book from %s"%shortName)
-print(toc)
-sys.exit()
 
 def createChapterHtml(chapter):
     chapterId=chapter["osisID"]
@@ -38,7 +36,7 @@ with open(inputFile) as fp:
   for book in soup.find_all('div',type="book"):
     bookId=book["osisID"]
     print(bookId)
-    for chapter in book.find_all("chapter"):
-       createChapterHtml(chapter)
+    #for chapter in book.find_all("chapter"):
+    #   createChapterHtml(chapter)
 
 

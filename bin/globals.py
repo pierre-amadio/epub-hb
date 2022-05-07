@@ -3,44 +3,44 @@
 import sys
 
 bookNames=[]
-bookNames.append[{"Genesis":"Gen"}]
-bookNames.append[{"Exodus":"Exod"}]
-bookNames.append[{"Leviticus":"Lev"}]
-bookNames.append[{"Numbers":"Num"}]
-bookNames.append[{"Deuteronomy":"Deut"}]
-bookNames.append[{"Joshua":"Josh"}]
-bookNames.append[{"Judges":"Judg"}]
-bookNames.append[{"1-Samuel":"1Sam"}]
-bookNames.append[{"2-Samuel":"2Sam"}]
-bookNames.append[{"1-Kings":"1Kgs"}]
-bookNames.append[{"2-Kings":"2Kgs"}]
-bookNames.append[{"Isaiah":"Isa"}]
-bookNames.append[{"Jeremiah":"Jer"}]
-bookNames.append[{"Ezekiel":"Ezek"}]
-bookNames.append[{"Hosea":"Hos"}]
-bookNames.append[{"Joel":"Joel"}]
-bookNames.append[{"Amos":"Amos"}]
-bookNames.append[{"Obadiah":"Obad"}]
-bookNames.append[{"Jonah":"Jonah"}]
-bookNames.append[{"Micah":"Mic"}]
-bookNames.append[{"Nahum":"Nah"}]
-bookNames.append[{"Habakkuk":"Hab"}]
-bookNames.append[{"Zephaniah":"Zeph"}]
-bookNames.append[{"Haggai":"Hag"}]
-bookNames.append[{"Zechariah":"Zech"}]
-bookNames.append[{"Malachi":"Mal"}]
-bookNames.append[{"Job":"Job"}]
-bookNames.append[{"Proverbs":"Prov"}]
-bookNames.append[{"Ruth":"Ruth"}]
-bookNames.append[{"Song of Songs":"Song"}]
-bookNames.append[{"Ecclesiastes":"Eccl"}]
-bookNames.append[{"Lamentations":"Lam"}]
-bookNames.append[{"Esther":"Esth"}]
-bookNames.append[{"Daniel":"Dan"}]
-bookNames.append[{"Ezra":"Ezra"}]
-bookNames.append[{"Nehemiah":"Neh"}]
-bookNames.append[{"Chronicles-1":"1Chr"}]
-bookNames.append[{"Chronicles-2":"2Chr"}]
+bookNames.append({"Genesis":"Gen"})
+bookNames.append({"Exodus":"Exod"})
+bookNames.append({"Leviticus":"Lev"})
+bookNames.append({"Numbers":"Num"})
+bookNames.append({"Deuteronomy":"Deut"})
+bookNames.append({"Joshua":"Josh"})
+bookNames.append({"Judges":"Judg"})
+bookNames.append({"1-Samuel":"1Sam"})
+bookNames.append({"2-Samuel":"2Sam"})
+bookNames.append({"1-Kings":"1Kgs"})
+bookNames.append({"2-Kings":"2Kgs"})
+bookNames.append({"Isaiah":"Isa"})
+bookNames.append({"Jeremiah":"Jer"})
+bookNames.append({"Ezekiel":"Ezek"})
+bookNames.append({"Hosea":"Hos"})
+bookNames.append({"Joel":"Joel"})
+bookNames.append({"Amos":"Amos"})
+bookNames.append({"Obadiah":"Obad"})
+bookNames.append({"Jonah":"Jonah"})
+bookNames.append({"Micah":"Mic"})
+bookNames.append({"Nahum":"Nah"})
+bookNames.append({"Habakkuk":"Hab"})
+bookNames.append({"Zephaniah":"Zeph"})
+bookNames.append({"Haggai":"Hag"})
+bookNames.append({"Zechariah":"Zech"})
+bookNames.append({"Malachi":"Mal"})
+bookNames.append({"Job":"Job"})
+bookNames.append({"Proverbs":"Prov"})
+bookNames.append({"Ruth":"Ruth"})
+bookNames.append({"Song of Songs":"Song"})
+bookNames.append({"Ecclesiastes":"Eccl"})
+bookNames.append({"Lamentations":"Lam"})
+bookNames.append({"Esther":"Esth"})
+bookNames.append({"Daniel":"Dan"})
+bookNames.append({"Ezra":"Ezra"})
+bookNames.append({"Nehemiah":"Neh"})
+bookNames.append({"Chronicles-1":"1Chr"})
+bookNames.append({"Chronicles-2":"2Chr"})
 
 
 
