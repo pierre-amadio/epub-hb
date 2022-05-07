@@ -50,9 +50,15 @@ def createChapterHtml(chapter):
             elif(node.name=="seg"):
                 tmp="<span class='%s'>%s</span>"%(node["type"],node.string)
                 curVerse["content"]+=tmp
+            elif(node.name=="rdg"):
+                if(node["type"]=="x-qere"):
+                    tmp="<span class='qere'>%s<span>"%node.string
+                    """not good: gen 30.11 this is None"""
+                    print(verseId)
+                    print(node)
+                    print(tmp)
             else:
-                print(verseId)
-                print(node)
+                """print(verseId)"""
 
 
         data["verses"].append(curVerse)
