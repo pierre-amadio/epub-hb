@@ -4,6 +4,10 @@ import sys
 import re
 from bs4 import BeautifulSoup
 from globals import *
+from jinja2 import Template,FileSystemLoader,Environment
+
+file_loader = FileSystemLoader("templates")
+env = Environment(loader=file_loader)
 
 inputFile=sys.argv[1]
 outputDir=sys.argv[2]
@@ -46,14 +50,12 @@ def createChapterHtml(chapter):
                 word=node.contents[0]
                 if(word.find("/")>-1):
                     word=word.replace("/","")
-                curVerse["content"]+=word
+                curVerse["content"]+="%s "%word
             elif(node.name=="seg"):
                 tmp="<span class='%s'>%s</span>"%(node["type"],node.string)
                 curVerse["content"]+=tmp
             elif(node.name=="rdg" and "type" in node.attrs):
                 if(node["type"]=="x-qere"):
-                    print(verseId)
-                    print(node)
                     """
                     Carefull, the x-qere rdg node may contain several w nodes such as in gen 30.11:
                     <w type="x-ketiv" lemma="b/1409" morph="HR/Ncmsa" id="01VG3">ב/גד</w>
@@ -66,14 +68,15 @@ def createChapterHtml(chapter):
                     """
                     tmpSnt="<span class='x-qere'>["
                     for curw in node.find_all("w"):
-                        print("curw",curw)
                         word=curw.contents[0]
                         if(word.find("/")>-1):
                             word=word.replace("/","")
                         tmpSnt+="%s"%word
                     tmpSnt+="]</span>"
                     curVerse["content"]+=tmpSnt
-                    print(curVerse)
+            elif(node.name=="rdg"):
+                """Gen.38.24 by exemple:""" 
+                continue
             elif(node.name=="note"):
                 continue
             elif(node.name=='catchWord'):
@@ -84,6 +87,13 @@ def createChapterHtml(chapter):
 
 
         data["verses"].append(curVerse)
+
+    chapterTemplate = env.get_template("chapter.html")
+    chapterOutput = chapterTemplate.render(chapter=data)
+    fileOutput="html/%03d-%s.html"%(int(chapterNbr),bookId)
+    print(fileOutput)
+    with open(fileOutput,"w") as f:
+        f.write(chapterOutput)
 
        
 """
