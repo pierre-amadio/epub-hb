@@ -93,22 +93,13 @@ def createChapterHtml(chapter):
 
     chapterTemplate = env.get_template("chapter.html")
     chapterOutput = chapterTemplate.render(chapter=data)
-    fileOutput="html/%03d-%s.html"%(int(chapterNbr),bookId)
-    print(fileOutput)
+    prefix=bookOrder[bookName]
+    
+    fileOutput="%s/%02d-%s-%03d.html"%(outputDir,prefix,bookId,int(chapterNbr))
     with open(fileOutput,"w") as f:
         f.write(chapterOutput)
 
        
-"""
-        for node in verse.find_all():
-            #print("name=",node.name)
-            if node.name!="w":
-                print(node.name)
-                print(node)
-            if "type" in node.attrs:
-                print("type)",node["type"])
-"""
-
 
 with open(inputFile) as fp:
   soup=BeautifulSoup(fp, features='xml')
