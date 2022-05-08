@@ -43,19 +43,28 @@ def createChapterHtml(chapter):
         curVerse["content"]=""        
         for node in verse.find_all():
             if(node.name=="w"):
-                word=node.string
+                word=node.contents[0]
                 if(word.find("/")>-1):
                     word=word.replace("/","")
                 curVerse["content"]+=word
             elif(node.name=="seg"):
                 tmp="<span class='%s'>%s</span>"%(node["type"],node.string)
                 curVerse["content"]+=tmp
-            elif(node.name=="rdg"):
+            elif(node.name=="rdg" and "type" in node.attrs):
+                print("type=",node["type"])
                 if(node["type"]=="x-qere"):
-                    tmp="<span class='qere'>%s<span>"%node.string
-                    """not good: gen 30.11 this is None"""
                     print(verseId)
                     print(node)
+                    """
+                    Carefull, the x-qere rdg node may contain several w nodes such as in gen 30.11:
+                    <w type="x-ketiv" lemma="b/1409" morph="HR/Ncmsa" id="01VG3">ב/גד</w>
+                    <note type="variant"><catchWord>ב/גד</catchWord>
+                       <rdg type="x-qere">
+                         <w lemma="935" morph="HVqrmsa" id="01Q3H">בָּ֣א</w> 
+                         <w lemma="1409" n="1" morph="HNcmsa" id="01gKG">גָ֑ד</w>
+                       </rdg>
+                    </note>
+                    """
                     print(tmp)
             else:
                 """print(verseId)"""
