@@ -100,13 +100,11 @@ def createChapterHtml(chapter):
         f.write(chapterOutput)
 
        
-"""
 with open(inputFile) as fp:
   soup=BeautifulSoup(fp, features='xml')
   for book in soup.find_all('div',type="book"):
     for chapter in book.find_all("chapter"):
        createChapterHtml(chapter)
-"""
 toc=[]
 playOrderCnt=1
 for ind in range(1,39):
@@ -124,7 +122,7 @@ for ind in range(1,39):
     bookDir=m.group(1)
     abbr=bookNames[curBook["name"]]
     bookXMLFile="%s/%s.xml"%(bookDir,abbr)
-    bookHTMLFile="html/%02d-%s-%03d.html"%(ind,abbr,1)
+    bookHTMLFile="Text/%02d-%s-%03d.html"%(ind,abbr,1)
     curBook["file"]=bookHTMLFile
     chapterCnt=0
     with open(bookXMLFile) as fp:
@@ -133,7 +131,7 @@ for ind in range(1,39):
             for chapter in book.find_all("chapter"):
                 curChapter={}
                 chapterCnt+=1
-                bookHTMLFile="html/%02d-%s-%03d.html"%(ind,abbr,chapterCnt)
+                bookHTMLFile="Text/%02d-%s-%03d.html"%(ind,abbr,chapterCnt)
                 print(bookHTMLFile)
                 curChapter["navpointId"]=playOrderCnt
                 curChapter["playOrderId"]=playOrderCnt
