@@ -46,15 +46,7 @@ def createChapterHtml(chapter):
         curVerse["nbr"]=verseNbr
         curVerse["content"]=""        
         for node in verse.find_all():
-            if(node.name=="w"):
-                word=node.contents[0]
-                if(word.find("/")>-1):
-                    word=word.replace("/","")
-                curVerse["content"]+="%s "%word
-            elif(node.name=="seg"):
-                tmp="<span class='%s'>%s</span>"%(node["type"],node.string)
-                curVerse["content"]+=tmp
-            elif(node.name=="rdg" and "type" in node.attrs):
+            if(node.name=="rdg" and "type" in node.attrs):
                 if(node["type"]=="x-qere"):
                     """
                     Carefull, the x-qere rdg node may contain several w nodes such as in gen 30.11:
@@ -74,6 +66,17 @@ def createChapterHtml(chapter):
                         tmpSnt+="%s"%word
                     tmpSnt+="]</span>"
                     curVerse["content"]+=tmpSnt
+            elif(node.name=="w"):
+                if("type" in node.parent.attrs):
+                    if(node.parent["type"]=="x-qere"):
+                        continue
+                word=node.contents[0]
+                if(word.find("/")>-1):
+                    word=word.replace("/","")
+                curVerse["content"]+="%s "%word
+            elif(node.name=="seg"):
+                tmp="<span class='%s'>%s</span>"%(node["type"],node.string)
+                curVerse["content"]+=tmp
             elif(node.name=="rdg"):
                 """Gen.38.24 by exemple:""" 
                 continue
