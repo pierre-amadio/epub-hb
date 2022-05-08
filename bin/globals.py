@@ -88,4 +88,5 @@ bookOrder["Chronicles-1"]=38
 bookOrder["Chronicles-2"]=39
 
 
+reverseOrder = {v: k for k,v in bookOrder.items()}
 
