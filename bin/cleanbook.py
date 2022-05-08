@@ -51,7 +51,6 @@ def createChapterHtml(chapter):
                 tmp="<span class='%s'>%s</span>"%(node["type"],node.string)
                 curVerse["content"]+=tmp
             elif(node.name=="rdg" and "type" in node.attrs):
-                print("type=",node["type"])
                 if(node["type"]=="x-qere"):
                     print(verseId)
                     print(node)
@@ -65,9 +64,23 @@ def createChapterHtml(chapter):
                        </rdg>
                     </note>
                     """
-                    print(tmp)
+                    tmpSnt="<span class='x-qere'>["
+                    for curw in node.find_all("w"):
+                        print("curw",curw)
+                        word=curw.contents[0]
+                        if(word.find("/")>-1):
+                            word=word.replace("/","")
+                        tmpSnt+="%s"%word
+                    tmpSnt+="]</span>"
+                    curVerse["content"]+=tmpSnt
+                    print(curVerse)
+            elif(node.name=="note"):
+                continue
+            elif(node.name=='catchWord'):
+                continue
             else:
                 """print(verseId)"""
+                print("What is this node",verseId,node)
 
 
         data["verses"].append(curVerse)
