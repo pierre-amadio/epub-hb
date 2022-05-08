@@ -7,6 +7,7 @@ for i in `ls $MORPHHBREPO/wlc`; do
   ./bin/cleanbook.py $MORPHHBREPO/wlc/$i book
 done
 
+./bin/createToc.py $MORPHHBREPO/wlc 
 
 #Get the needed font:
 wget https://software.sil.org/downloads/r/ezra/EzraSIL-2.51.zip
