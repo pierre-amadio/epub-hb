@@ -30,6 +30,7 @@ def createChapterHtml(chapter):
         sys.exit()
     bookId=m.group(1)
     bookName=bookAbbr[bookId]
+    
     chapterNbr=m.group(2)
     data["id"]=chapterNbr
     data["nbr"]=chapterNbr
@@ -107,6 +108,7 @@ with open(inputFile) as fp:
        createChapterHtml(chapter)
 toc=[]
 playOrderCnt=1
+print("Creating TOC")
 for ind in range(1,39):
     curBook={}
     curBook["navpointId"]="%03d"%playOrderCnt
@@ -132,7 +134,6 @@ for ind in range(1,39):
                 curChapter={}
                 chapterCnt+=1
                 bookHTMLFile="Text/%02d-%s-%03d.html"%(ind,abbr,chapterCnt)
-                print(bookHTMLFile)
                 curChapter["navpointId"]=playOrderCnt
                 curChapter["playOrderId"]=playOrderCnt
                 playOrderCnt+=1
