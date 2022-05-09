@@ -102,8 +102,19 @@ def createChapterHtml(chapter):
 
        
 with open(inputFile) as fp:
-  soup=BeautifulSoup(fp, features='xml')
-  for book in soup.find_all('div',type="book"):
-    for chapter in book.find_all("chapter"):
-       createChapterHtml(chapter)
+    soup=BeautifulSoup(fp, features='xml')
+    for book in soup.find_all('div',type="book"):
+        bookOsisId=book["osisID"]
+        bookName=bookAbbr[bookOsisId] 
+        bookTemplate = env.get_template("book.html")
+        bookOutput = bookTemplate.render(book={"name":bookName})
+        prefix=bookOrder[bookName]
+        fileOutput="%s/%02d-%s.html"%(outputDir,prefix,bookOsisId)
+        with open(fileOutput,"w") as f:
+            f.write(bookOutput)
+
+
+
+        for chapter in book.find_all("chapter"):
+            createChapterHtml(chapter)
 

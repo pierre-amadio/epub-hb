@@ -6,7 +6,6 @@ mkdir book
 for i in `ls $MORPHHBREPO/wlc`; do
   ./bin/cleanbook.py $MORPHHBREPO/wlc/$i book
 done
-
 ./bin/createToc.py $MORPHHBREPO/wlc 
 
 #Get the needed font:

@@ -19,7 +19,7 @@ else:
 toc=[]
 playOrderCnt=1
 print("Creating TOC")
-for ind in range(1,39):
+for ind in range(1,40):
     curBook={}
     curBook["navpointId"]="%03d"%playOrderCnt
     curBook["playOrderId"]="%03d"%playOrderCnt
@@ -37,7 +37,7 @@ for ind in range(1,39):
     bookDir=inputFile
     abbr=bookNames[curBook["name"]]
     bookXMLFile="%s/%s.xml"%(bookDir,abbr)
-    bookHTMLFile="Text/%02d-%s-%03d.html"%(ind,abbr,1)
+    bookHTMLFile="Text/%02d-%s.html"%(ind,abbr)
     curBook["file"]=bookHTMLFile
     chapterCnt=0
     with open(bookXMLFile) as fp:
