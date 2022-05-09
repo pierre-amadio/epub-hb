@@ -21,8 +21,8 @@ playOrderCnt=1
 print("Creating TOC")
 for ind in range(1,40):
     curBook={}
-    curBook["navpointId"]="%03d"%playOrderCnt
-    curBook["playOrderId"]="%03d"%playOrderCnt
+    curBook["navpointId"]="%s"%playOrderCnt
+    curBook["playOrderId"]="%s"%playOrderCnt
     curBook["chapters"]=[]
     playOrderCnt+=1
     curBook["name"]=reverseOrder[ind]

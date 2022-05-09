@@ -7,12 +7,12 @@
 </head>
 <body>
 	
-	<chapter id="{{chapter.id}}"><H2>{{chapter.nbr}}</H2>
-  {% for verse in chapter.verses -%}
-	  <span class="verseNbr">{{verse.nbr}}</span>
-   {{verse.content}}
-  {% endfor -%}
-  </chapter>
-
+<div> 
+<H2>{{chapter.nbr}}</H2>
+ {% for verse in chapter.verses -%}
+  <span class="verseNbr">{{verse.nbr}}</span>
+  {{verse.content}}
+ {% endfor -%}
+</div>
 </body>
 </html>
