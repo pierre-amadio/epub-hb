@@ -94,7 +94,7 @@ def createChapterHtml(chapter):
 
     chapterTemplate = env.get_template("chapter.html")
     chapterOutput = chapterTemplate.render(chapter=data)
-    prefix=bookOrder[bookName]
+    prefix=bookOrder[bookName]+tocOffset
     
     fileOutput="%s/%02d-%s-%03d.html"%(outputDir,prefix,bookId,int(chapterNbr))
     with open(fileOutput,"w") as f:
@@ -108,7 +108,7 @@ with open(inputFile) as fp:
         bookName=bookAbbr[bookOsisId] 
         bookTemplate = env.get_template("book.html")
         bookOutput = bookTemplate.render(book={"name":bookName})
-        prefix=bookOrder[bookName]
+        prefix=bookOrder[bookName]+tocOffset
         fileOutput="%s/%02d-%s.html"%(outputDir,prefix,bookOsisId)
         with open(fileOutput,"w") as f:
             f.write(bookOutput)

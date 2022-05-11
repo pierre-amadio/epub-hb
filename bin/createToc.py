@@ -16,8 +16,24 @@ if m:
 else:
   shortName=inputFile
 
+
+
 toc=[]
-playOrderCnt=1
+toc.append({
+    "navpointId":"1",
+    "playOrderId":"1",
+    "name":"Table Of Contents",
+    "file":"01-TOC.html"
+    })
+
+toc.append({
+    "navpointId":"2",
+    "playOrderId":"2",
+    "name":"Foreword",
+    "file":"02-Foreword.html"
+    })
+
+playOrderCnt=tocOffset+1
 print("Creating TOC")
 for ind in range(1,40):
     curBook={}
@@ -26,18 +42,10 @@ for ind in range(1,40):
     curBook["chapters"]=[]
     playOrderCnt+=1
     curBook["name"]=reverseOrder[ind]
-    """
-    m=re.match("(.*)\/\w+\.xml",inputFile)
-    if not m:
-        print("Cannot parse inputFile",inputFile)
-        sys.exit()
-    
-    bookDir=m.group(1)
-    """
     bookDir=inputFile
     abbr=bookNames[curBook["name"]]
     bookXMLFile="%s/%s.xml"%(bookDir,abbr)
-    bookHTMLFile="Text/%02d-%s.html"%(ind,abbr)
+    bookHTMLFile="%02d-%s.html"%(ind+tocOffset,abbr)
     curBook["file"]=bookHTMLFile
     chapterCnt=0
     with open(bookXMLFile) as fp:
@@ -46,7 +54,7 @@ for ind in range(1,40):
             for chapter in book.find_all("chapter"):
                 curChapter={}
                 chapterCnt+=1
-                bookHTMLFile="Text/%02d-%s-%03d.html"%(ind,abbr,chapterCnt)
+                bookHTMLFile="%02d-%s-%03d.html"%(ind+tocOffset,abbr,chapterCnt)
                 curChapter["navpointId"]=playOrderCnt
                 curChapter["playOrderId"]=playOrderCnt
                 playOrderCnt+=1
@@ -60,5 +68,10 @@ tocTemplate = env.get_template("toc.ncx")
 tocOutput = tocTemplate.render(books=toc)
 with open("toc.ncx","w") as f:
     f.write(tocOutput)
+
+htmltocTemplate = env.get_template("TOC.html")
+htmltocOutput = htmltocTemplate.render(books=toc)
+with open("book/01-TOC.html","w") as f:
+    f.write(htmltocOutput)
 
 

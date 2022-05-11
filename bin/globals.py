@@ -2,6 +2,8 @@
 # *- coding: utf-8 -*-
 import sys
 
+tocOffset=2
+
 bookNames={}
 bookNames["Genesis"]="Gen"
 bookNames["Exodus"]="Exod"

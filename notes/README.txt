@@ -8,6 +8,8 @@ for i in `ls $MORPHHBREPO/wlc`; do
 done
 ./bin/createToc.py $MORPHHBREPO/wlc 
 
+cp templates/Foreword.html book/02-Foreword.html
+
 #Get the needed font:
 wget https://software.sil.org/downloads/r/ezra/EzraSIL-2.51.zip
 
