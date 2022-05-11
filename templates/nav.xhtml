@@ -3,11 +3,11 @@
       <li>
 	      <a href="{{book.file}}">{{book.name}}</a>
       {% if book.chapters|length %}
-       <ul>
+       <ol>
 	       {% for chapter in book.chapters -%}
 	       <li><a href="{{chapter.file}}">{{chapter.name}}</a></li>
 	       {% endfor -%}
-       </ul>
+       </ol>
       {% endif -%}
       </li>
     {% endfor -%}
