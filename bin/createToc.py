@@ -23,14 +23,14 @@ toc.append({
     "navpointId":"1",
     "playOrderId":"1",
     "name":"Table Of Contents",
-    "file":"01-TOC.html"
+    "file":"01-TOC.xhtml"
     })
 
 toc.append({
     "navpointId":"2",
     "playOrderId":"2",
     "name":"Foreword",
-    "file":"02-Foreword.html"
+    "file":"02-Foreword.xhtml"
     })
 
 playOrderCnt=tocOffset+1
@@ -45,7 +45,7 @@ for ind in range(1,40):
     bookDir=inputFile
     abbr=bookNames[curBook["name"]]
     bookXMLFile="%s/%s.xml"%(bookDir,abbr)
-    bookHTMLFile="%02d-%s.html"%(ind+tocOffset,abbr)
+    bookHTMLFile="%02d-%s.xhtml"%(ind+tocOffset,abbr)
     curBook["file"]=bookHTMLFile
     chapterCnt=0
     with open(bookXMLFile) as fp:
@@ -54,7 +54,7 @@ for ind in range(1,40):
             for chapter in book.find_all("chapter"):
                 curChapter={}
                 chapterCnt+=1
-                bookHTMLFile="%02d-%s-%03d.html"%(ind+tocOffset,abbr,chapterCnt)
+                bookHTMLFile="%02d-%s-%03d.xhtml"%(ind+tocOffset,abbr,chapterCnt)
                 curChapter["navpointId"]=playOrderCnt
                 curChapter["playOrderId"]=playOrderCnt
                 playOrderCnt+=1
@@ -71,7 +71,12 @@ with open("toc.ncx","w") as f:
 
 htmltocTemplate = env.get_template("TOC.html")
 htmltocOutput = htmltocTemplate.render(books=toc)
-with open("book/01-TOC.html","w") as f:
+with open("book/01-TOC.xhtml","w") as f:
     f.write(htmltocOutput)
+
+navTemplate = env.get_template("nav.xhtml")
+navOutput = navTemplate.render(books=toc)
+with open("nav.xhtml","w") as f:
+    f.write(navOutput)
 
 
