@@ -18,12 +18,9 @@ wget https://software.sil.org/downloads/r/ezra/EzraSIL-2.51.zip
 #Add all the html file in the Text directory
 
 #Add a title to the nav's title node.
-
+#Add the content of the navs's Table of content from the generated nav.xhtml file
 #In the content.opf change the page progrression direction  <spine page-progression-direction="rtl">
 
 
-#Then the module has to be turned into a epub3
-#https://ebooks.stackexchange.com/questions/6804/can-kobo-read-hebrew-epubs
-#https://www.mobileread.com/forums/showthread.php?p=2973066
 
 #save the epub3 file as hb.kepub
