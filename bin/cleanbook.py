@@ -77,6 +77,9 @@ def createChapterHtml(chapter):
                 curVerse["content"]+="%s "%word
             elif(node.name=="seg"):
                 tmp="<span class='%s'>%s</span>"%(node["type"],node.string)
+                if(node["type"]=="x-maqqef"):
+                  """we are in before a maqqef, let s delete the previous space"""
+                  curVerse["content"]=curVerse["content"][:-1]
                 curVerse["content"]+=tmp
             elif(node.name=="rdg"):
                 """Gen.38.24 by exemple:""" 
