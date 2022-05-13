@@ -17,6 +17,11 @@ wget https://software.sil.org/downloads/r/ezra/EzraSIL-2.51.zip
 #Add the SILEOT.ttf font in the sigil's font directory
 #Add all the html file in the Text directory
 
+#Add a title to the nav's title node.
+
+#In the content.opf change the page progrression direction  <spine page-progression-direction="rtl">
+
+
 #Then the module has to be turned into a epub3
 #https://ebooks.stackexchange.com/questions/6804/can-kobo-read-hebrew-epubs
 #https://www.mobileread.com/forums/showthread.php?p=2973066
