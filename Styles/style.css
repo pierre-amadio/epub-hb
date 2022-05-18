@@ -27,4 +27,6 @@ span.x-pe::after{
 
 body {
   font-family: "Ezra SIL Regular"; 
+  text-align: right;
+  text-justify: none;
 }
