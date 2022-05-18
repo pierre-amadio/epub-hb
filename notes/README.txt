@@ -23,4 +23,12 @@ wget https://software.sil.org/downloads/r/ezra/EzraSIL-2.51.zip
 
 
 
-#save the epub3 file as hb.kepub
+#save the epub3 file as hb.kepub.epub
+
+#####Issues:
+
+nav.xhtml is flat on the kobo:
+
+https://github.com/kobolabs/epub-spec#table-of-contents-toc
+https://www.w3.org/publishing/epub3/epub-packages.html#sec-package-nav
+https://www.w3.org/publishing/epub3/epub-packages.html#sec-package-nav-def

@@ -1,14 +1,18 @@
     <ol>
     {% for book in books -%}
-      <li>
+      {% if book.chapters|length -%}
+       <li>
 	      <a href="{{book.file}}">{{book.name}}</a>
-      {% if book.chapters|length %}
-       <ol>
+	       <ol>
 	       {% for chapter in book.chapters -%}
-	       <li><a href="{{chapter.file}}">{{chapter.name}}</a></li>
+	        <li><a href="{{chapter.file}}">{{chapter.name}}</a></li>
 	       {% endfor -%}
-       </ol>
+	       </ol>
+       </li>
+       {% else -%}
+       <li>
+	      <a href="{{book.file}}">{{book.name}}</a>
+       </li>
       {% endif -%}
-      </li>
     {% endfor -%}
     </ol>
