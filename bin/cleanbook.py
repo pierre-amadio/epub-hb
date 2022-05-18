@@ -65,7 +65,7 @@ def createChapterHtml(chapter):
                         if(word.find("/")>-1):
                             word=word.replace("/","")
                         tmpSnt+="%s"%word
-                    tmpSnt+="]</span>"
+                    tmpSnt+="]</span> "
                     curVerse["content"]+=tmpSnt
             elif(node.name=="w"):
                 if("type" in node.parent.attrs):
