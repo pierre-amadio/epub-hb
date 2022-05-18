@@ -32,3 +32,4 @@ nav.xhtml is flat on the kobo:
 https://github.com/kobolabs/epub-spec#table-of-contents-toc
 https://www.w3.org/publishing/epub3/epub-packages.html#sec-package-nav
 https://www.w3.org/publishing/epub3/epub-packages.html#sec-package-nav-def
+An a element MAY be followed by an ol ordered list representing a subsidiary content level below that heading (e.g., all the subsection headings of a section).
