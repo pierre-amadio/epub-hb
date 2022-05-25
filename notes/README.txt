@@ -22,7 +22,7 @@ wget https://software.sil.org/downloads/r/ezra/EzraSIL-2.51.zip
 #Add a title to the nav's title node.
 #Add the content of the navs's Table of content from the generated nav.xhtml file
 #In the content.opf change the page progrression direction  <spine page-progression-direction="rtl">
-
+#add the title in the content.opf
 
 
 #save the epub3 file as hb.kepub.epub
