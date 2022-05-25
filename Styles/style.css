@@ -7,12 +7,9 @@
 }
 
 .x-pe{
-  padding-right:20px;
-}
-
-span.x-pe::after{
-  content: "\A";
-  white-space: pre;
+  float: left;
+  padding-right: 20px;
+  border-color: black;
 }
 
 .x-samekh{

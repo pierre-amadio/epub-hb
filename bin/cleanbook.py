@@ -80,6 +80,9 @@ def createChapterHtml(chapter):
                 if(node["type"]=="x-maqqef"):
                   """we are in before a maqqef, let s delete the previous space"""
                   curVerse["content"]=curVerse["content"][:-1]
+                elif(node["type"]=="x-pe"):
+                  """There is a parasha petuha, let's add a line break. """
+                  tmp+="<br>"
                 curVerse["content"]+=tmp
             elif(node.name=="rdg"):
                 """Gen.38.24 by exemple:""" 
