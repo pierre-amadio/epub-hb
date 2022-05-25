@@ -14,8 +14,10 @@ cp templates/Foreword.html book/02-Foreword.xhtml
 wget https://software.sil.org/downloads/r/ezra/EzraSIL-2.51.zip
 
 #Start sigil
+#Create a new v3 ebook
 #Add the SILEOT.ttf font in the sigil's font directory
 #Add all the html file in the Text directory
+#Delete the section1 file
 
 #Add a title to the nav's title node.
 #Add the content of the navs's Table of content from the generated nav.xhtml file
@@ -25,11 +27,4 @@ wget https://software.sil.org/downloads/r/ezra/EzraSIL-2.51.zip
 
 #save the epub3 file as hb.kepub.epub
 
-#####Issues:
 
-nav.xhtml is flat on the kobo:
-
-https://github.com/kobolabs/epub-spec#table-of-contents-toc
-https://www.w3.org/publishing/epub3/epub-packages.html#sec-package-nav
-https://www.w3.org/publishing/epub3/epub-packages.html#sec-package-nav-def
-An a element MAY be followed by an ol ordered list representing a subsidiary content level below that heading (e.g., all the subsection headings of a section).
